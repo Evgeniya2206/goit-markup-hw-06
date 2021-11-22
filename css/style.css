@@ -174,6 +174,7 @@ img {
 }
 .backdrop {
   position: fixed;
+  z-index: 888;
   top: 0;
   left: 0;
   width: 100%;
@@ -207,14 +208,20 @@ img {
   border-radius: 50%;
 }
 .modal-icon {
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
   width: 18px;
   height: 18px;
   fill: #000000;
+}
+.modal-icon:focus,
+.modal-icon:hover {
+  fill: var(--accent);
 }
 .modal-text {
   margin: 0;
   padding: 0;
 }
+
 .hero-title {
   color: #ffffff;
   font-weight: 900;
@@ -239,6 +246,124 @@ img {
 .button:hover,
 .button:focus {
   background-color: #188ce8;
+}
+/* Герой формы */
+
+textarea {
+  resize: none;
+}
+.title-modal {
+  color: var(--title-text-color);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+  padding: 0;
+  margin: 40px 39px 12px 41px;
+}
+.form {
+  width: 448px;
+  height: 342px;
+  margin: 0 40px 164px;
+}
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  text-align: start;
+}
+.form-fields {
+  flex-direction: row;
+  text-align: center;
+}
+.form-field label {
+  margin-bottom: 4px;
+}
+.form-field .input {
+  color: var(--primary-text-color);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.17;
+  padding: 12px 11px;
+  margin: 0;
+  border: 1px solid rgb(33, 33, 33, 0.2);
+  padding-left: 42px;
+}
+
+.form-field > .input:last-child {
+  padding: 12px 16px;
+}
+.check {
+  color: var(--primary-text-color);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.72;
+}
+.check-color {
+  color: var(--accent);
+}
+.submit-button {
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  width: 200px;
+  height: 50px;
+  color: var(--primary-bg-color);
+  background-color: var(--accent);
+  font-weight: 700;
+  font-size: 16px;
+  padding: 10px 56px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  margin-top: 30px;
+}
+.submit-button:hover,
+.submit-button:focus {
+  background-color: #188ce8;
+}
+
+.input:focus ~ .modal-form-icon {
+  fill: var(--accent);
+}
+
+.modal-form-icon {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 30px;
+  left: 12px;
+}
+
+.input:focus {
+  outline: none;
+  border: 1px solid var(--accent);
+  cursor: pointer;
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.checkbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+.checks {
+  display: block;
+}
+
+.form-field,
+.form-fields {
+  position: relative;
+}
+.modal-form-check {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 2px solid var(--title-text-color);
+  border-radius: 2px;
+  background-image: url(../images/iconchecksecond.svg);
+}
+.checkbox:checked + .modal-form-check {
+  background-color: var(--accent);
+  border-color: var(--accent);
 }
 
 /* Секция */
@@ -484,6 +609,7 @@ img {
 .footer-conteiner {
   display: flex;
   align-items: baseline;
+  justify-content: space-between;
 }
 
 .footer-logo {
@@ -515,7 +641,6 @@ img {
 }
 .footer-icon {
   display: block;
-  margin-left: 70px;
 }
 
 .footer-icons {
@@ -563,6 +688,63 @@ img {
 .footer-links:hover,
 .footer-links:focus {
   background-color: var(--accent);
+}
+/* Футер форм */
+.footer-connect {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+.title-connect {
+  font-family: Roboto, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-transform: uppercase;
+  padding: 0;
+  margin: 0 0 14px 0;
+  color: #ffffff;
+}
+.footer-connect-list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+.form-button {
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  width: 200px;
+  height: 50px;
+  font-family: Roboto, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+  letter-spacing: 0.06em;
+  color: var(--primary-bg-color);
+  background-color: var(--accent);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.form-button:focus,
+.form-button:hover {
+  background-color: #188ce8;
+}
+.form-email {
+  padding: 15px 0 15px 16px;
+  width: 358px;
+  height: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.6);
+  background-color: #2f303a;
+}
+
+.form-icons {
+  width: 24px;
+  height: 24px;
+  fill: #ffffff;
+  margin-left: 10px;
 }
 
 /* Портфолио */
